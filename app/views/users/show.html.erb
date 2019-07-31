@@ -10,4 +10,10 @@
       <%= render 'shared/stats' %>
     </section>
   </aside>
+  <aside class="col-md-4">
+    <%= render 'shared/list_form' if @user==current_user%>
+    <ul class="lists">
+      <%= render @lists if !@lists.nil? %>
+    </ul>
+  </aside>
 </div>

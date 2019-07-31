@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  has_many :lists, dependent: :destroy
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
   validates :name,  presence: true, length: { maximum: 50 }
@@ -39,5 +40,10 @@ class User < ApplicationRecord
   # Returns a random token.
   def self.new_token
     SecureRandom.urlsafe_base64
+  end
+
+  # Returns a user's status feed.
+  def feed
+    lists.all
   end
 end

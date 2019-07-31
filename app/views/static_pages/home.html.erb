@@ -8,12 +8,14 @@
         <%= render 'shared/stats' %>
       </section>
       <section class="micropost_form">
-        <%= render 'shared/micropost_form' %>
+        <%= render 'shared/list_form' %>
       </section>
     </aside>
     <div class="col-md-8">
-      <h3>Micropost Feed</h3>
-      <%= render 'shared/feed' %>
+      <h3>Lists</h3>
+      <ul class="lists">
+        <%= render @lists if !@lists.nil? %>
+      </ul>
     </div>
   </div>
 <% else %>
